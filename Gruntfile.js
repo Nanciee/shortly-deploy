@@ -98,11 +98,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
-      grunt.task.run(['build', 'eslint', 'test', 'shell']);
+      grunt.task.run(['eslint', 'test', 'shell']);
     } else {
       grunt.task.run(['server-dev']);
     }
   });
 
-  grunt.registerTask('deploy', ['upload']);
+  grunt.registerTask('deploy', ['build', 'upload']);
 };
